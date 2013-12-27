@@ -1,7 +1,5 @@
 package com.dbraillon.dbgraphics.componants;
 
-import java.awt.Font;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.TrueTypeFont;
