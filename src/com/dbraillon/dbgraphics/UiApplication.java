@@ -37,8 +37,14 @@ public class UiApplication extends BasicGame {
 			
 			System.exit(0);
 		}
-		else
-		{
+		else {
+			
+			if(navigator.isNewScreen()) {
+				
+				navigator.getCurrentScreen().init(navigator, gameContainer);
+				navigator.setNewScreen(false);
+			}
+			
 			navigator.getCurrentScreen().render(gameContainer);
 		}
 	}

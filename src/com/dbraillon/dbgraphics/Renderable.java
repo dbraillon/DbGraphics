@@ -10,6 +10,15 @@ public abstract class Renderable  {
 	private Color color;
 	private float height, width;
 	
+	protected Renderable(Point position, Depth depth) {
+		
+		this.setPosition(position);
+		this.setDepth(depth);
+		this.setColor(color);
+		this.setHeight(height);
+		this.setWidth(width);
+	}
+	
 	protected Renderable(Point position, Depth depth, Color color, float height, float width) {
 		
 		this.setPosition(position);

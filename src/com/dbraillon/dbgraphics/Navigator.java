@@ -4,45 +4,58 @@ import java.util.Vector;
 
 public class Navigator {
 
-	private static Vector<Screen> screens;
+	private Vector<Screen> screens;
+	private boolean isNewScreen;
 	
 	public Navigator(Screen firstScreen) {
 		
-		setScreens(new Vector<Screen>());
-		getScreens().add(firstScreen);
+		screens = new Vector<Screen>();
+		screens.add(firstScreen);
+		
+		isNewScreen = false;
 	}
 	
 	public void pushScreen(Screen newScreen)
 	{
-		if(getScreens().contains(newScreen)) {
+		if(screens.contains(newScreen)) {
 			
-			getScreens().remove(newScreen);
+			screens.remove(newScreen);
 		}
 		
-		getScreens().add(newScreen);
+		screens.add(newScreen);
+		isNewScreen = true;
 	}
 	
 	public void popScreen(Screen screen)
 	{
-		getScreens().remove(screen);
+		screens.remove(screen);
+		isNewScreen = true;
 	}
 	
 	public Screen getCurrentScreen()
 	{
-		if(getScreens().size() > 0)
+		if(screens.size() > 0)
 		{
-			return getScreens().lastElement();
+			return screens.lastElement();
 		}
 	
 		return null;
 	}
 
 	
-	public static Vector<Screen> getScreens() {
+	public Vector<Screen> getScreens() {
 		return screens;
 	}
 
-	public static void setScreens(Vector<Screen> screens) {
-		Navigator.screens = screens;
+	public void setScreens(Vector<Screen> screens) {
+		this.screens = screens;
+	}
+
+	public boolean isNewScreen() {
+		return isNewScreen;
+	}
+
+	public void setNewScreen(boolean isNewScreen) {
+		this.isNewScreen = isNewScreen;
 	}
 }

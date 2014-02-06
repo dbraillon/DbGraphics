@@ -12,6 +12,7 @@ public class StringRenderItem extends Renderable {
 
 	private String value;
 	private TrueTypeFont ttf;
+	private Object object;
 	
 	public StringRenderItem(Point position, String value) {
 		super(position, Depth.Middle, new Color(255, 255, 255), 0f, 0f);
@@ -23,6 +24,13 @@ public class StringRenderItem extends Renderable {
 		super(position, Depth.Middle, new Color(255, 255, 255), 0f, 0f);
 		
 		this.value = value;
+		this.ttf = font;
+	}
+	
+	public StringRenderItem(Point position, Object obj, TrueTypeFont font) {
+		super(position, Depth.Middle, new Color(255, 255, 255), 0f, 0f);
+		
+		this.object = obj;
 		this.ttf = font;
 	}
 	
@@ -46,7 +54,11 @@ public class StringRenderItem extends Renderable {
 			gameContainer.getGraphics().setFont(ttf);
 		
 		gameContainer.getGraphics().setColor(getColor());
-		gameContainer.getGraphics().drawString(value, getPosition().getX(), getPosition().getY());
+		
+		if(value == null)
+			gameContainer.getGraphics().drawString(object.toString(), getPosition().getX(), getPosition().getY());
+		else
+			gameContainer.getGraphics().drawString(value, getPosition().getX(), getPosition().getY());
 	}
 
 	
