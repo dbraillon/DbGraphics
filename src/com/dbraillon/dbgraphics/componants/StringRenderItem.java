@@ -41,24 +41,25 @@ public class StringRenderItem extends Renderable {
 	}
 	
 	@Override
-	protected void init(GameContainer gameContainer) {
+	public void init(GameContainer gameContainer) {
 		
-		setHeight(gameContainer.getGraphics().getFont().getHeight(value));
-		setWidth(gameContainer.getGraphics().getFont().getWidth(value));
+		//setHeight(gameContainer.getGraphics().getFont().getHeight(value));
+		//setWidth(gameContainer.getGraphics().getFont().getWidth(value));
 	}
 	
 	@Override
-	protected void render(GameContainer gameContainer) {
+	public void render(GameContainer gameContainer) {
 		
 		if(ttf != null)
 			gameContainer.getGraphics().setFont(ttf);
 		
 		gameContainer.getGraphics().setColor(getColor());
 		
-		if(value == null)
-			gameContainer.getGraphics().drawString(object.toString(), getPosition().getX(), getPosition().getY());
-		else
+		if(value != null)
 			gameContainer.getGraphics().drawString(value, getPosition().getX(), getPosition().getY());
+		else if(object != null)
+			gameContainer.getGraphics().drawString(object.toString(), getPosition().getX(), getPosition().getY());
+			
 	}
 
 	

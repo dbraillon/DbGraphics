@@ -52,7 +52,7 @@ public abstract class Screen {
 			
 			for(Renderable renderable : renderables) {
 				
-				renderable.update(gameContainer);
+				renderable.update(gameContainer, frameTimeModifier);
 			}
 		}
 	}

@@ -30,7 +30,7 @@ public abstract class Renderable  {
 	
 	protected void init(GameContainer gameContainer) {}
 	protected void render(GameContainer gameContainer) {}
-	protected void update(GameContainer gameContainer) {}
+	protected void update(GameContainer gameContainer, double frameTimeModifier) {}
 
 
 	public Point getPosition() {
